@@ -1,7 +1,7 @@
 # An Introduction to Interactive Programming in Python (Part 1)
 # Practice exercises for variables and assignments    
 
-# 1. Compute the number of feet corresponding to a number of miles:
+# 1. Compute the number of feet corresponding to __a number of miles:
 def miles_to_feet(miles):
     return float(miles * 5280)
 
@@ -16,21 +16,21 @@ print_miles_to_feet(82.67)
 class My_Time(object):
     h = 0
     m = 0
-    s = 0
+    __s = 0
     def __init__(self, h, m, s):
         self.h = h
         self.m = m
-        self.s = s
+        self.__s = s
         
     def __repr__(self):
-        return "%d::%d::%d" %(self.h, self.m, self.s)
+        return "%d::%d::%d" %(self.h, self.m, self.__s)
     
     def total_seconds(self):
-        return 60*(60*self.h + self.m) + self.s
+        return 60*(60*self.h + self.m) + self.__s
     
     def print_total_seconds(self):
         print "%d hours, %d minutes, and %d seconds totals to %d seconds" \
-        %(self.h,self.m, self.s, self.total_seconds())        
+        %(self.h,self.m, self.__s, self.total_seconds())        
 
 time1 = My_Time(7,21,37)
 time2 = My_Time(10,1,7)
@@ -56,7 +56,7 @@ class My_Rectangle(object):
     def __repr__(self):
         
         return "A rectangle %d inches wide and %d \
-inches high has a perimeter of %d inches and area of %d square inches." \
+inches high h__as a perimeter of %d inches and area of %d square inches." \
     %(self.w,self.h, self.perimeter, self.area)
         
 
@@ -72,56 +72,56 @@ print r3
 
 # 11. Calculate the area of triangle:
 
-# Point class from a previous excercise.
+# Point class from __a previous excercise.
 import math
 
 class My_Point(object):
-    x   = 0.0
-    y   = 0.0
+    __x   = 0.0
+    __y   = 0.0
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.__x = x
+        self.__y = y
     def __repr__(self):
-        return "(%g, %g)" %(self.x,self.y)
+        return "(%g, %g)" %(self.__x,self.__y)
 
     def distance(self, other_point):
-        return math.sqrt((self.x - other_point.x)**2+(self.y - other_point.y)**2)
+        return math.sqrt((self.__x - other_point.__x)**2+(self.__y - other_point.__y)**2)
         
 class My_Triangle(object):
-    node1 = My_Point(0,0)
-    node2 = My_Point(0,0)
-    node3 = My_Point(0,0)
+    __node1 = My_Point(0,0)
+    __node2 = My_Point(0,0)
+    __node3 = My_Point(0,0)
     
-    a = 0.0 # side a: node1 : node2
-    b = 0.0 # side b: node2 : node3
-    c = 0.0 # side c: node1 : node3
-    s = 0.0
-    perimeter = 0.0
+    __a = 0.0 # side __a: __node1 : __node2
+    __b = 0.0 # side __b: __node2 : __node3
+    __c = 0.0 # side __c: __node1 : __node3
+    __s = 0.0
+    __perimeter = 0.0
     
-    def calc_sides(self):
-        self.a = self.node1.distance(self.node2)
-        self.b = self.node2.distance(self.node3)
-        self.c = self.node1.distance(self.node3)
+    def __calc_sides(self):
+        self.__a = self.__node1.distance(self.__node2)
+        self.__b = self.__node2.distance(self.__node3)
+        self.__c = self.__node1.distance(self.__node3)
     
-    def calc_s(self):
-        self.s = 0.5*sum([self.a, self.b, self.c])
+    def __calc_s(self):
+        self.__s = 0.5*sum([self.__a, self.__b, self.__c])
     
-    def calc_perimeter(self):
-        x = self.s*(self.s-self.a)*(self.s-self.b)*(self.s-self.c)
-        self.perimeter = math.sqrt(x)
+    def __calc_perimeter(self):
+        x = self.__s*(self.__s-self.__a)*(self.__s-self.__b)*(self.__s-self.__c)
+        self.__perimeter = math.sqrt(x)
     
     def __init__(self, node1, node2, node3):
-        self.node1 = node1
-        self.node2 = node2
-        self.node3 = node3
+        self.__node1 = node1
+        self.__node2 = node2
+        self.__node3 = node3
         
-        self.calc_sides()
-        self.calc_s()
-        self.calc_perimeter()
+        self.__calc_sides()
+        self.__calc_s()
+        self.__calc_perimeter()
     
     def print_perimeter(self):
         print "Triangle %s, %s, %s has a perimeter of %.1f." \
-        %(self.node1, self.node2, self.node3, self.perimeter)
+        %(self.__node1, self.__node2, self.__node3, self.__perimeter)
     
 # Triangle 1    
 n1 = My_Point(0,0)
@@ -130,16 +130,18 @@ n3 = My_Point(1,1)
 t1 = My_Triangle(n1,n2,n3)
 t1.print_perimeter()
 
+
+
 # Triangle 2
 n1 = My_Point(-2,4)
 n2 = My_Point(1,6)
 n3 = My_Point(2,1)
-t1 = My_Triangle(n1,n2,n3)
-t1.print_perimeter()
+t2 = My_Triangle(n1,n2,n3)
+t2.print_perimeter()
 
 # Triangle 3
 n1 = My_Point(10,0)
 n2 = My_Point(0,0)
 n3 = My_Point(0,10)
-t1 = My_Triangle(n1,n2,n3)
-t1.print_perimeter()
+t3 = My_Triangle(n1,n2,n3)
+t3.print_perimeter()
