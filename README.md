@@ -11,3 +11,11 @@ https://www.coursera.org/course/interactivepython1
 
 0. expressions.py
 0. variables.py
+0. functions.py
+0. logic.py
+
+### Chalanges
+0. triangles.py
+0. print_digits.py
+0. powerball.py
+0. octisphere.py
