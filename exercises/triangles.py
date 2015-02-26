@@ -90,7 +90,6 @@ print x, y, z
 t = My_Triangle(x,y,z)
 t.print_area()
  
-  
 quit()
     
 # Triangle 1    
