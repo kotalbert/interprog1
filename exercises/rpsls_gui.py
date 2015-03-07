@@ -1,7 +1,11 @@
-"""
+""" 
 An Introduction to Interactive Programming in Python (Part 1)
-Mini-project #1: Rock-paper-scissors-lizard-Spock
+Practice exercises for buttons and input fields # 6. 
+
+GUI for Rock-paper-scissors-lizard-Spock game
 """
+
+# Game logic copied from Mini project 1:
 
 class Names_map:
     """
@@ -73,14 +77,21 @@ def rpsls(player_choice):
     # creating the names map to get the helper functions 
     nm = Names_map()
     
+    
     # print a blank line to separate consecutive games
     print 
-    
+        
     # print out the message for the player's choice
     print "Player chooses: %s" %player_choice 
 
     # convert the player's choice to player_number using the function name_to_number()
     player_number = nm.name_to_number(player_choice)
+
+    # Validate player choice: if player_number is a number: proceed
+    # else: exit function and print a messege
+    if not isinstance(player_number, int):
+        print "Invalid player choince."
+        return 
 
     # compute random guess for comp_number using random.randrange()
     comp_number = random.randrange(0,5)
@@ -102,13 +113,14 @@ def rpsls(player_choice):
         print "Player wins!"
     else:
         print "Player and computer tie!"
+        
+        
+# GUI implementation
+# http://www.codeskulptor.org/#user39_oVMglvtVOfIRcbK.py
+
+import simpleguitk as simplegui
+
+frame = simplegui.create_frame("RPSLS", 200, 200, 200)
+frame.add_input("Player choice", rpsls, 200)
+frame.start()
     
-# test your code - THESE CALLS MUST BE PRESENT IN YOUR SUBMITTED CODE
-rpsls("rock")
-rpsls("Spock")
-rpsls("paper")
-rpsls("lizard")
-rpsls("scissors")
-
-
-
