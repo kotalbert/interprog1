@@ -1,6 +1,11 @@
+"""
+An Introduction to Interactive Programming in Python (Part 1)
+Mini-project #1: Rock-paper-scissors-lizard-Spock
 
+Testing the helper functions
+"""
 
-from mp_1_rpsls import *
+from mp_1_rpsls import Names_map, rpsls
 
 def cp(fnc_name):
     print "Testing:\t%s" %fnc_name
